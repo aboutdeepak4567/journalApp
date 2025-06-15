@@ -3,6 +3,7 @@ package com.dk.journalApp.entity;
 public class JournalEntry {
     private long id;
     private String title;
+    private String content;
 
     public long getId() {
         return id;
@@ -28,5 +29,5 @@ public class JournalEntry {
         this.content = content;
     }
 
-    private String content;
+
 }
