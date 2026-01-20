@@ -1,12 +1,12 @@
-//package com.dk.journalApp.controller;
-//
-//import org.springframework.web.bind.annotation.GetMapping;
-//import org.springframework.web.bind.annotation.RestController;
-//
-//@RestController
-//class HealthCheck {
-//    @GetMapping("/health-check")
-//    String healthCheck(){
-//        return "Ok";
-//    }
-//}
+package com.dk.journalApp.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+class HealthCheck {
+    @GetMapping("/health-check")
+    String healthCheck(){
+        return "Ok";
+    }
+}
