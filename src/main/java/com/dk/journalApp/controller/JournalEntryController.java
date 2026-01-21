@@ -19,6 +19,10 @@ public class JournalEntryController {
     public JournalEntry getById(@PathVariable Long myId){
         return journalEntries.get(myId);
     }
+    @GetMapping("/id/play")
+    public String testId(){
+        return "testing dev tools";
+    }
     @DeleteMapping("/id/{myId}")
     public JournalEntry deleteById(@PathVariable Long myId){
         return journalEntries.remove(myId);
