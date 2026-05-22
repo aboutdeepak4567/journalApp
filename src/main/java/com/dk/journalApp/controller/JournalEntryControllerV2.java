@@ -4,13 +4,13 @@ import com.dk.journalApp.entity.JournalEntry;
 import com.dk.journalApp.service.JournalEntryService;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 @RequestMapping("/journal/v1")
@@ -21,10 +21,15 @@ public class JournalEntryControllerV2 {
     private JournalEntryService journalEntryService;
 
 
-     @GetMapping
-     public List<JournalEntry> getAll(){
+    @GetMapping
+    public ResponseEntity<List<JournalEntry>> getAll() {
+        List<JournalEntry> journalEntries = journalEntryService.getAll();
 
-        return journalEntryService.getAll();
+        if (journalEntries != null && !journalEntries.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.OK).body(journalEntries);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
     }
 
 
